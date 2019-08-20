@@ -65,6 +65,36 @@ app.get('/viewemployees',(req,res)=>{
     });
 });
 /////////////////////////////////////////////////////
+//define the API to get a singleemployee
+
+app.get('/searchByNameAPI/:uname',(req,res)=>{
+    var emplname = req.params.uname;
+    employeeModel.find({uname:emplname}, (error, data)=>{
+        if(error){
+            throw error;
+        }else{
+            res.send(data);
+        }
+    });
+});
+
+//define API link
+const searchByNameAPILink = 'http://localhost:3046/searchByNameAPI'
+
+//use in function to retrieve data
+app.post('/searchEmployee',(req,res)=>{
+    item = req.body.singname;
+    request(searchByNameAPILink+"/"+ item, (error, response, body)=>{
+        if(error){
+            throw error;
+        }else{
+            var data = JSON.parse(body);
+            //console.log(body);
+            res.render('showEmployee',{'data':data})
+        } 
+    });
+});
+
 
 
 
