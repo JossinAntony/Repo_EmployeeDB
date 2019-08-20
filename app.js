@@ -1,9 +1,37 @@
 const Express = require('express');
+const Mongoose = require('mongoose');
+const bodyParser =require('body-parser');
+
 
 var app = new Express();
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({extended:true}));
 
+
+Mongoose.connect('mongodb://localhost:27017/EmployeeDB');
+
+const employeeModel = Mongoose.model('employees',
+{
+    uname:String,
+    udesig:String,
+    usal:String
+}
+);
+
+app.post('/saveInfo',(req,res)=>{
+    var details = req.body;
+    var employee = new employeeModel(details);
+    var result = employee.save((error, data)=>{
+        if (error){
+            throw error;
+        }else{
+            res.send('employee record created @' + data);
+        }
+    });
+
+
+});
 
 app.get('/',(req,res)=>{
     res.render('index');
