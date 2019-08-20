@@ -29,7 +29,23 @@ app.post('/saveInfo',(req,res)=>{
             res.send('employee record created @' + data);
         }
     });
+});
 
+//define retrievel API
+app.get('/retrieveInfo',(req,res)=>{
+    var retrieve = employeeModel.find((error,data)=>{
+        if (error){
+            throw error;
+        }else{
+            res.send(data);
+        }
+    });
+
+});
+
+
+
+app.get('/viewemployees',(req,res)=>{
 
 });
 
