@@ -15,37 +15,53 @@
     <title>viewemployees</title>
 </head>
 <body>
-        <div class="container">
-                <div class="row">
-                    <div class="col col-12 col-sm-2"></div>
-                    <div class="col col-12 col-sm-8 border border-secondary rounded">
-                        <br><br><br>
-                        <h1 class='text-center'>EMPLOYEE DATABASE</h1>
-                        <br><br>
-                        
-                            <table class="table table-borderless">
-                                <tr>
-                                    <td><h5 class="text-center">Name:</h5></td>
-                                    <td> </td>
-                                </tr>
-                                <tr>
-                                    <td><h5 class="text-center">Designation:</h5></td>
-                                    <td> <input type="text" class="form-control" name="udesig"> </td>
-                                </tr>
-                                <tr>
-                                    <td><h5 class="text-center">Salary:</h5></td>
-                                    <td> <input type="text" class="form-control" name="usal"> </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td> <button class="btn btn-info" type="submit">SUBMIT</button></td>
-                                </tr>
-                        </table>
 
-                    </div>
-                    <div class="col col-12 col-sm-2"></div>
+    <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/index">Add Employees</a>
+            </li>
+            <li class="nav-item active">
+                    <a class="nav-link" href="/viewemployees">View Employees</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+            <div class="row">
+                <div class="col col-12 col-sm-2"></div>
+                <div class="col col-12 col-sm-8 ">
+                    <br><br><br>
+                    <h1 class='text-center'>EMPLOYEE DATABASE</h1>
+                    <br><br>
+                    <% for(var i= 0; i < data.length; i++){ %>
+                        <table class="table table-striped">
+                            <tr>
+                                <td><h5 class="">Name:</h5></td>
+                                <td> <%= data[i].uname %></td>
+                            </tr>
+                            <tr>
+                                <td><h5 class="">Designation:</h5></td>
+                                <td> <%= data[i].udesig %></td>
+                            </tr>
+                            <tr>
+                                <td><h5 class="">Salary:</h5></td>
+                                <td> <%= data[i].usal %></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    <% } %>
+
+
                 </div>
+                <div class="col col-12 col-sm-2"></div>
             </div>
+        </div>
+    </div>
+            
     
 </body>
 </html>

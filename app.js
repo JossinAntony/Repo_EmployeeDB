@@ -1,6 +1,7 @@
 const Express = require('express');
 const Mongoose = require('mongoose');
 const bodyParser =require('body-parser');
+var request = require('request');
 
 
 var app = new Express();
@@ -44,8 +45,18 @@ app.get('/retrieveInfo',(req,res)=>{
 });
 
 
+const retrieveDataApi = "http://localhost:3046/retrieveInfo"
 
 app.get('/viewemployees',(req,res)=>{
+    request(retrieveDataApi,(error, response, body)=>{
+        if (error){
+            throw error;
+        }else{
+            var data= JSON.parse(body);
+            res.render('viewemployees',{'data':data});
+            console.log(data);
+        }
+    });
 
 });
 
