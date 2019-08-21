@@ -33,7 +33,6 @@ app.post('/saveInfo',(req,res)=>{
         }else{
             //res.send('employee record created @' + data);
             res.send("<script>alert('New employee record created!')</script>");
-            
         }
     });
 });
@@ -51,7 +50,8 @@ app.get('/retrieveInfo',(req,res)=>{
 });
 
 ///get link to the retrievel API
-const retrieveDataApi = "http://localhost:3046/retrieveInfo"
+//const retrieveDataApi = "http://localhost:3046/retrieveInfo"
+const retrieveDataApi = "https://employeedb-jossin.herokuapp.com/retrieveInfo"
 
 ///call the API in a function to retieve the data
 app.get('/viewemployees',(req,res)=>{
@@ -79,7 +79,8 @@ app.get('/searchByNameAPI/:uname',(req,res)=>{
 });
 
 //define API link
-const searchByNameAPILink = 'http://localhost:3046/searchByNameAPI'
+//const searchByNameAPILink = 'http://localhost:3046/searchByNameAPI'
+const searchByNameAPILink = "https://employeedb-jossin.herokuapp.com/searchByNameAPI"
 
 //use in function to retrieve data
 app.post('/searchEmployee',(req,res)=>{
