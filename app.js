@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-//Mongoose.connect('mongodb://localhost:27017/EmployeeDB');
+Mongoose.connect('mongodb://localhost:27017/EmployeeDB');
 Mongoose.connect('mongodb+srv://jossin:jossin@cluster0-arjkd.mongodb.net/test?retryWrites=true&w=majority'); //mongodb cloudatlas add, remener to change password
 
 ////////////////////////////////////////////////
