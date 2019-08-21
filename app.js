@@ -80,7 +80,7 @@ app.get('/searchByNameAPI/:uname',(req,res)=>{
 
 //define API link
 //const searchByNameAPILink = 'http://localhost:3046/searchByNameAPI'
-const searchByNameAPILink = "https://employeedb-jossin.herokuapp.com/searchByNameAPI"
+const searchByNameAPILink = "https://employeedb-jossin.herokuapp.com/retrieveInfo"
 
 //use in function to retrieve data
 app.post('/searchEmployee',(req,res)=>{
